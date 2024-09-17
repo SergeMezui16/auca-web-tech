@@ -1,0 +1,12 @@
+.login-box {
+	display: flex;
+	flex-direction: column;
+	border: var(--border) solid 1px;
+	box-shadow: var(--border) inset 15px;
+	padding: 14px;
+	border-radius: var(--radius);
+	min-width: 295px;
+	width: fit-content;
+	max-width: 295px;
+	gap: 5px;
+}
