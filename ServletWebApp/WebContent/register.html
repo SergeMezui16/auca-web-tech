@@ -15,18 +15,31 @@
 		<div class="login-box">
 			<h2>Sign Up</h2>
 			<p class="text-muted text-small">Enter your information to create your account.</p>
-			<form action="/ServletWebApp/register" method="post" class="form">
+			<form action="register" method="post" class="form">
 				<div class="form-control">
-					<label for="username">User Name:</label>
+					<label for="username">Username</label>
 					<input type="text" id="username" name="username" required>
 				</div>
 				<div class="form-control">
-					<label for="password">Password:</label>
+					<label for="role">Role</label>
+					<select name="role" id="role">
+						<option value="STUDENT">Student</option>
+						<option value="LECTURER">Lecturer</option>
+						<option value="REGISTRAR">Registrar</option>
+						<option value="HOD">Head Of Department</option>
+					</select>
+				</div>
+				<div class="form-control">
+					<label for="password">Password</label>
 					<input type="password" id="password" name="password" required>
 				</div>
 				<div class="form-control">
-					<label for="confirmPassword">Confirm Password:</label>
+					<label for="confirmPassword">Confirm Password</label>
 					<input type="password" id="confirmPassword" name="confirmPassword" required>
+				</div>
+				<div class="form-checkbox">
+					<input type="checkbox" id="persistent" name="persistent">
+					<label for="persistent">Save this credentials</label>
 				</div>
 				<div class="">
 					<button type="submit" class="btn btn-primary w-full">Register</button>
