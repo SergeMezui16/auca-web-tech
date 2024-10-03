@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.CookiesService;
+
 /**
  * Servlet implementation class Register
  */
@@ -31,11 +33,23 @@ public class RegisterServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Username : " + request.getParameter("username"));
-		System.out.println("Password : " + request.getParameter("password"));
-		System.out.println("Confirm : " + request.getParameter("confirmPassword"));
-		doGet(request, response);
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String confirm = req.getParameter("confirmPassword");
+		String role = req.getParameter("role");
+		boolean persistent = req.getParameter("persistent") != null ? true : false;
+		
+		if(!password.equalsIgnoreCase(confirm)) {
+			res.sendRedirect("register?error=teyeme");
+			return;
+		}
+		
+		res.addCookie(CookiesService.createCookie("username", username, persistent));
+		res.addCookie(CookiesService.createCookie("password", password, persistent));
+		res.addCookie(CookiesService.createCookie("role", role, persistent));
+		
+		res.sendRedirect("login?message=AccountCreated");
 	}
 
 }
