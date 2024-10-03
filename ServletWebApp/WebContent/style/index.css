@@ -111,6 +111,11 @@ body {
   color: var(--secondary-foreground);
 }
 
+.btn.btn-danger {
+  background-color: var(--destructive);
+  color: var(--primary-foreground);
+}
+
 .btn.w-full {
   width: 100%;
 }
@@ -146,7 +151,16 @@ body {
   flex-direction: column;
 }
 
-.form-control input {
+.form-checkbox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 2px;
+  align-items: center;
+  justify-content: start;
+}
+
+.form-control input, .form-control select {
   padding: 10px;
   border: var(--input) 1px solid;
   border-radius: var(--radius);
@@ -172,6 +186,10 @@ header h1 {
   color: var(--primary-foreground);
 }
 
+header h2 {
+  color: var(--primary-foreground);
+}
+
 header div {
   flex: 1;
   list-style: none;
@@ -181,8 +199,33 @@ header div {
   align-items: center;
   gap: 7px;
   width: 100%;
+  justify-items: end;
+  justify-content: end;
 }
 
 header span {
   color: var(--primary-foreground);
+}
+
+/****  MODAL ***/
+.modal-box {
+  backdrop-filter: brightness(50%) blur(2px);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  margin: auto;
+  padding: 10px;
+  background: var(--background);
+  border: var(--border);
+  border-radius: var(--radius);
+  height: fit-content;
 }
